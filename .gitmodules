@@ -1,0 +1,60 @@
+[submodule "pack/levicole/start/vim-surround"]
+	path = pack/levicole/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "pack/levicole/start/vim-abolish"]
+	path = pack/levicole/start/vim-abolish
+	url = git@github.com:tpope/vim-abolish
+[submodule "pack/levicole/start/tabular"]
+	path = pack/levicole/start/tabular
+	url = git@github.com:godlygeek/tabular.git
+[submodule "pack/levicole/start/vim-dispatch"]
+	path = pack/levicole/start/vim-dispatch
+	url = git@github.com:tpope/vim-dispatch.git
+[submodule "pack/levicole/start/vim-endwise"]
+	path = pack/levicole/start/vim-endwise
+	url = git@github.com:tpope/vim-endwise.git
+[submodule "pack/levicole/start/vim-fugitive"]
+	path = pack/levicole/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "pack/levicole/start/vim-haml"]
+	path = pack/levicole/start/vim-haml
+	url = git@github.com:tpope/vim-haml.git
+[submodule "pack/levicole/start/vim-javascript"]
+	path = pack/levicole/start/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "pack/levicole/start/vim-json"]
+	path = pack/levicole/start/vim-json
+	url = git@github.com:elzr/vim-json.git
+[submodule "pack/levicole/start/vim-projectionist"]
+	path = pack/levicole/start/vim-projectionist
+	url = git@github.com:tpope/vim-projectionist.git
+[submodule "pack/levicole/start/vim-ragtag"]
+	path = pack/levicole/start/vim-ragtag
+	url = git@github.com:tpope/vim-ragtag.git
+[submodule "pack/levicole/start/vim-rails"]
+	path = pack/levicole/start/vim-rails
+	url = git@github.com:tpope/vim-rails.git
+[submodule "pack/levicole/start/vim-rake"]
+	path = pack/levicole/start/vim-rake
+	url = git@github.com:tpope/vim-rake.git
+[submodule "pack/levicole/start/vim-repeat"]
+	path = pack/levicole/start/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "pack/levicole/start/vim-sensible"]
+	path = pack/levicole/start/vim-sensible
+	url = git@github.com:tpope/vim-sensible.git
+[submodule "pack/levicole/start/vim-unimpaired"]
+	path = pack/levicole/start/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "pack/levicole/start/nerdcommenter"]
+	path = pack/levicole/start/nerdcommenter
+	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "pack/levicole/start/vim-afterglow"]
+	path = pack/levicole/start/vim-afterglow
+	url = git@github.com:danilo-augusto/vim-afterglow.git
+[submodule "pack/levicole/start/ack.vim"]
+	path = pack/levicole/start/ack.vim
+	url = git@github.com:mileszs/ack.vim.git
+[submodule "pack/levicole/start/vim-ruby"]
+	path = pack/levicole/start/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby.git
