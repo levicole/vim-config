@@ -61,3 +61,9 @@
 [submodule "pack/levicole/start/fzf.vim"]
 	path = pack/levicole/start/fzf.vim
 	url = git@github.com:junegunn/fzf.vim.git
+[submodule "pack/levicole/start/vim-rsi"]
+	path = pack/levicole/start/vim-rsi
+	url = git@github.com:tpope/vim-rsi.git
+[submodule "pack/levicole/start/nova.vim"]
+	path = pack/levicole/start/nova.vim
+	url = git@github.com:zanglg/nova.vim.git

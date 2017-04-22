@@ -78,10 +78,15 @@ set number
 
 map <leader>] :bnext<CR>
 map <leader>[ :bprevious<CR>
+map <leader>t :FZF<CR>
 
 imap dt5 <!DOCTYPE html>
 
 noremap ,s :source ~/.vimrc.local
+
+if has("termguicolors")
+  set termguicolors
+endif
 
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=16
