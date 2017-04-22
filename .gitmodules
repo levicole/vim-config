@@ -58,9 +58,6 @@
 [submodule "pack/levicole/start/vim-ruby"]
 	path = pack/levicole/start/vim-ruby
 	url = git@github.com:vim-ruby/vim-ruby.git
-[submodule "pack/levicole/start/command-t"]
-	path = pack/levicole/start/command-t
-	url = git@github.com:wincent/command-t.git
 [submodule "pack/levicole/start/fzf.vim"]
 	path = pack/levicole/start/fzf.vim
 	url = git@github.com:junegunn/fzf.vim.git
