@@ -79,3 +79,6 @@
 [submodule "pack/levicole/start/vim-airline"]
 	path = pack/levicole/start/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
+[submodule "pack/levicole/start/neosnippet-snippets"]
+	path = pack/levicole/start/neosnippet-snippets
+	url = git@github.com:Shougo/neosnippet-snippets.git
