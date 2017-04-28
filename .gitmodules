@@ -67,3 +67,15 @@
 [submodule "pack/levicole/start/nova.vim"]
 	path = pack/levicole/start/nova.vim
 	url = git@github.com:zanglg/nova.vim.git
+[submodule "pack/levicole/start/neocomplete"]
+	path = pack/levicole/start/neocomplete
+	url = git@github.com:Shougo/neocomplete.git
+[submodule "pack/levicole/start/neosnippet.vim"]
+	path = pack/levicole/start/neosnippet.vim
+	url = git@github.com:Shougo/neosnippet.vim.git
+[submodule "pack/levicole/start/vim-snippets"]
+	path = pack/levicole/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
+[submodule "pack/levicole/start/vim-airline"]
+	path = pack/levicole/start/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
