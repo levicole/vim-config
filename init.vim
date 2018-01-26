@@ -90,13 +90,55 @@ augroup file_type_settings
   autocmd Syntax   css  syn sync minlines=50
 augroup END
 
+" Rails/Rspec/Ruby
 augroup rails_commands
   autocmd!
 
   autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
   autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
-  "autocmd BufRead *.rb call JumpToClassDef()
+  autocmd User Rails call JumpToClassDef()
 augroup END
+
+augroup sql_commands
+  autocmd!
+  " Starts an async psql job, prompting for the psql arguments.
+  " Also opens a scratch buffer where output from psql is directed.
+  autocmd FileType sql noremap <leader>po :VipsqlOpenSession<CR>
+
+  " Terminates psql (happens automatically if the scratch buffer is closed).
+  autocmd FileType sql noremap <silent> <leader>pk :VipsqlCloseSession<CR>
+
+  " In normal-mode, prompts for input to psql directly.
+  autocmd FileType sql nnoremap <leader>ps :VipsqlShell<CR>
+
+  " In visual-mode, sends the selected text to psql.
+  autocmd FileType sql vnoremap <leader>ps :VipsqlSendSelection<CR>
+
+  " Sends the selected _range_ to psql.
+  autocmd FileType sql noremap <leader>pr :VipsqlSendRange<CR>
+
+  " Sends the current line to psql.
+  autocmd FileType sql noremap <leader>pl :VipsqlSendCurrentLine<CR>
+
+  " Sends the entire current buffer to psql.
+  autocmd FileType sql noremap <leader>pb :VipsqlSendBuffer<CR>
+
+  " Sends `SIGINT` (C-c) to the psql process.
+  autocmd FileType sql noremap <leader>pc :VipsqlSendInterrupt<CR>
+
+  autocmd BufRead __vipsql__ setlocal nowrap
+augroup END
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+let g:racer_experimental_completer = 1
+
+map <Leader>s :call RunNearestSpec()<CR>
+let g:rspec_command = "Dispatch spring rspec {spec}"
+
 
 " Plugin settings / Custom Mappings
 
@@ -104,30 +146,9 @@ augroup END
 nmap \\           <Plug>NERDCommenterInvert
 xmap \\           <Plug>NERDCommenterInvert
 
-" Neocomplete
-
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neosnippet#snippets_directory = "~/.vim/pack/levicole/start/vim-snippets/snippets"
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-let g:neosnippet#enable_snipmate_compatibility=1
+" split join
+let g:splitjoin_ruby_hanging_args=0
+let g:splitjoin_ruby_curly_braces=0
 
 command! FZFB call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'), 'sink': 'e', 'down': '30%'})
 
@@ -145,6 +166,8 @@ imap dt5 <!DOCTYPE html>
 nnoremap <leader>fed :vsplit $MYVIMRC<cr>
 nnoremap <leader>fer :source $MYVIMRC<cr>
 nnoremap <leader>feR :source $MYVIMRC<cr>
+nnoremap <leader>; :
+inoremap ;; <esc>:
 
 noremap ,s :source ~/.vimrc.local
 
@@ -168,3 +191,8 @@ if &term =~ '256color'
   " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
 endif
+
+
+" I mispell things a lot:
+iabbrev fundemental fundamental
+iabbrev Fundemental Fundamental
