@@ -7,8 +7,7 @@ function! HTry(function, ...)
 endfunction
 
 function! MarkdownToHtml()
-  let file = expand('%:t:r')
-  execute(':!showdown makehtml -i % -o '. file . '.html')
+  let file = expand('%:t:r') execute(':!showdown makehtml -i % -o '. file . '.html')
 endfunction
 
 " Annotations Gem adds table info to the top of models and their associated
@@ -150,13 +149,10 @@ xmap \\           <Plug>NERDCommenterInvert
 let g:splitjoin_ruby_hanging_args=0
 let g:splitjoin_ruby_curly_braces=0
 
-command! FZFB call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'), 'sink': 'e', 'down': '30%'})
-
 map <leader>] :bnext<CR>
 map <leader>[ :bprevious<CR>
 map <leader>t :FZF<CR>
 map <leader>pf :FZF<CR>
-map <leader>b :FZFB<CR>
 map <leader>/ :Ag<CR>
 
 imap dt5 <!DOCTYPE html>
@@ -186,10 +182,10 @@ if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
 endif
 
 if &term =~ '256color'
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
+   "disable Background Color Erase (BCE) so that color schemes
+   "render properly when inside 256-color tmux and GNU screen.
+   "see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+   set t_ut=
 endif
 
 
