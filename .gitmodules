@@ -52,12 +52,6 @@
 [submodule "pack/levicole/start/vim-afterglow"]
 	path = pack/levicole/start/vim-afterglow
 	url = git@github.com:danilo-augusto/vim-afterglow.git
-[submodule "pack/levicole/start/ack.vim"]
-	path = pack/levicole/start/ack.vim
-	url = git@github.com:mileszs/ack.vim.git
-[submodule "pack/levicole/start/vim-ruby"]
-	path = pack/levicole/start/vim-ruby
-	url = git@github.com:vim-ruby/vim-ruby.git
 [submodule "pack/levicole/start/fzf.vim"]
 	path = pack/levicole/start/fzf.vim
 	url = git@github.com:junegunn/fzf.vim.git
@@ -67,21 +61,12 @@
 [submodule "pack/levicole/start/nova.vim"]
 	path = pack/levicole/start/nova.vim
 	url = git@github.com:zanglg/nova.vim.git
-[submodule "pack/levicole/start/vim-snippets"]
-	path = pack/levicole/start/vim-snippets
-	url = git@github.com:honza/vim-snippets.git
 [submodule "pack/levicole/start/vim-airline"]
 	path = pack/levicole/start/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
 [submodule "pack/levicole/start/vim-airline-themes"]
 	path = pack/levicole/start/vim-airline-themes
 	url = git@github.com:vim-airline/vim-airline-themes.git
-[submodule "pack/levicole/start/splitjoin.vim"]
-	path = pack/levicole/start/splitjoin.vim
-	url = git@github.com:AndrewRadev/splitjoin.vim.git
-[submodule "pack/levicole/start/vim-sql-workbench"]
-	path = pack/levicole/start/vim-sql-workbench
-	url = git@github.com:cosminadrianpopescu/vim-sql-workbench.git
 [submodule "pack/levicole/start/vim-rspec"]
 	path = pack/levicole/start/vim-rspec
 	url = git@github.com:thoughtbot/vim-rspec.git
@@ -91,15 +76,3 @@
 [submodule "pack/levicole/start/vim-elixir"]
 	path = pack/levicole/start/vim-elixir
 	url = git@github.com:elixir-lang/vim-elixir.git
-[submodule "pack/levicole/start/racer"]
-	path = pack/levicole/start/racer
-	url = git@github.com:racer-rust/racer.git
-[submodule "pack/levicole/start/vim-racer"]
-	path = pack/levicole/start/vim-racer
-	url = git@github.com:racer-rust/vim-racer.git
-[submodule "pack/levicole/start/rust.vim"]
-	path = pack/levicole/start/rust.vim
-	url = git@github.com:rust-lang/rust.vim.git
-[submodule "pack/levicole/start/vipsql"]
-	path = pack/levicole/start/vipsql
-	url = git@github.com:martingms/vipsql.git
