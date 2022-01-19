@@ -6,20 +6,6 @@ function! HTry(function, ...)
   endif
 endfunction
 
-function! MarkdownToHtml()
-  let file = expand('%:t:r') execute(':!showdown makehtml -i % -o '. file . '.html')
-endfunction
-
-" Annotations Gem adds table info to the top of models and their associated
-" specs. This gets called everytime I open a model.
-function! JumpToClassDef()
-  if RailsFileType() == 'model'
-    call search('class [A-Z]')
-  elseif RailsFileType() == 'rspec-model'
-    call search('describe [A-Z]')
-  endif
-endfunction
-
 filetype plugin indent on
 
 
@@ -45,7 +31,7 @@ if &statusline == ''
 endif
 set ttimeoutlen=50  " Make Esc work faster
 set wildmenu
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 let g:netrw_dirhistmax = 0
 
@@ -90,43 +76,12 @@ augroup file_type_settings
 augroup END
 
 " Rails/Rspec/Ruby
-augroup rails_commands
-  autocmd!
+"augroup rails_commands
+  "autocmd!
 
-  autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
-  autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
-  autocmd User Rails call JumpToClassDef()
-augroup END
-
-augroup sql_commands
-  autocmd!
-  " Starts an async psql job, prompting for the psql arguments.
-  " Also opens a scratch buffer where output from psql is directed.
-  autocmd FileType sql noremap <leader>po :VipsqlOpenSession<CR>
-
-  " Terminates psql (happens automatically if the scratch buffer is closed).
-  autocmd FileType sql noremap <silent> <leader>pk :VipsqlCloseSession<CR>
-
-  " In normal-mode, prompts for input to psql directly.
-  autocmd FileType sql nnoremap <leader>ps :VipsqlShell<CR>
-
-  " In visual-mode, sends the selected text to psql.
-  autocmd FileType sql vnoremap <leader>ps :VipsqlSendSelection<CR>
-
-  " Sends the selected _range_ to psql.
-  autocmd FileType sql noremap <leader>pr :VipsqlSendRange<CR>
-
-  " Sends the current line to psql.
-  autocmd FileType sql noremap <leader>pl :VipsqlSendCurrentLine<CR>
-
-  " Sends the entire current buffer to psql.
-  autocmd FileType sql noremap <leader>pb :VipsqlSendBuffer<CR>
-
-  " Sends `SIGINT` (C-c) to the psql process.
-  autocmd FileType sql noremap <leader>pc :VipsqlSendInterrupt<CR>
-
-  autocmd BufRead __vipsql__ setlocal nowrap
-augroup END
+  "autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
+  "autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
+"augroup END
 
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
