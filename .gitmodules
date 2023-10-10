@@ -76,3 +76,9 @@
 [submodule "pack/levicole/start/vim-elixir"]
 	path = pack/levicole/start/vim-elixir
 	url = git@github.com:elixir-lang/vim-elixir.git
+[submodule "pack/levicole/start/vim-rhubarb"]
+	path = pack/levicole/start/vim-rhubarb
+	url = git@github.com:tpope/vim-rhubarb.git
+[submodule "pack/levicole/start/vim-tidal"]
+	path = pack/levicole/start/vim-tidal
+	url = git@github.com:tidalcycles/vim-tidal.git

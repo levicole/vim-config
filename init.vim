@@ -65,7 +65,7 @@ augroup file_type_settings
   autocmd FileType asm setlocal shiftwidth=8 tabstop=8 expandtab
   autocmd BufNewFile,BufRead *.haml             set ft=haml
   autocmd FileType javascript             setlocal et sw=2 sts=2 isk+=$
-  autocmd FileType html,xhtml,css         setlocal et sw=2 sts=2
+  autocmd FileType html,xhtml,css,scss    setlocal et sw=2 sts=2
   autocmd FileType eruby,yaml,ruby        setlocal et sw=2 sts=2 omnifunc=rubycomplete#Complete
   autocmd FileType cucumber               setlocal et sw=2 sts=2
   autocmd FileType gitcommit              setlocal spell
