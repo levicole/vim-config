@@ -6,8 +6,28 @@ function! HTry(function, ...)
   endif
 endfunction
 
+"optional plugins
+"
+packadd vim-lsp
+packadd copilot.vim
+
+let g:copilot_filetypes = {
+    \ 'gitcommit': v:true,
+    \ 'markdown': v:true,
+    \ 'yaml': v:true,
+    \ 'ruby': v:true,
+    \ 'javascript': v:true
+    \ }
+
 filetype plugin indent on
 
+if executable('standardrb')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'standardrb',
+        \ 'cmd': ['standardrb', '--lsp'],
+        \ 'allowlist': ['ruby'],
+        \ })
+endif
 
 " Settings
 set nocompatible
@@ -42,7 +62,7 @@ command! -bar -nargs=* -bang W :write<bang> <args>
 command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 
 nnoremap Y       y$
-nnoremap <silent> <C-L> :nohls<CR><C-L>
+nnoremap <CR> :noh<CR><CR>
 
 " Emacs style mappings
 inoremap          <C-A> <C-O>^
@@ -55,6 +75,33 @@ vnoremap <silent> <S-TAB> <gv
 augroup vimrc
   autocmd!
   autocmd GuiEnter * set guifont=Hack:h16 guioptions-=T columns=120 lines=70 number
+augroup END
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go, *.rb call execute('LspDocumentFormatSync')
+
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
 augroup file_type_settings
@@ -90,7 +137,7 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 let g:racer_experimental_completer = 1
 
-map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>s :Ggrep <C-R><C-W><CR>
 let g:rspec_command = "Dispatch spring rspec {spec}"
 
 
