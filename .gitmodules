@@ -82,3 +82,12 @@
 [submodule "pack/levicole/start/vim-tidal"]
 	path = pack/levicole/start/vim-tidal
 	url = git@github.com:tidalcycles/vim-tidal.git
+[submodule "pack/github/opt/vim-lsp"]
+	path = pack/github/opt/vim-lsp
+	url = git@github.com:prabirshrestha/vim-lsp.git
+[submodule "pack/github/opt/vim-lsp-settings"]
+	path = pack/github/opt/vim-lsp-settings
+	url = git@github.com:mattn/vim-lsp-settings.git
+[submodule "pack/github/start/copilot.vim"]
+	path = pack/github/start/copilot.vim
+	url = https://github.com/github/copilot.vim.git
